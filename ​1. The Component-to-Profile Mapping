@@ -1,0 +1,29 @@
+# Component Linkage Configuration
+class ClockProfileLinker:
+    def __init__(self):
+        self.auth_threshold = "Diamond_Shift"
+        self.profile_link_status = False
+
+    def auto_filter_components(self, clock_state):
+        """
+        Filters active clock components into profile-ready variables.
+        Deems 'Interested' if component state shows significant variance.
+        """
+        filtered_metrics = {}
+
+        # 1. The .750ms Needle (System Heartbeat / Security)
+        if clock_state['needle_sync'] == "Host_Authenticated":
+            filtered_metrics['heartbeat_sig'] = clock_state['needle_pos']
+            
+        # 2. The Blue/Red Cogs (Skill & Trade / Monthly Vector)
+        if clock_state['cog_rotation'] > 0:
+            filtered_metrics['chroma_authority'] = {
+                'blue_cog': clock_state['monthly_aspect'],
+                'red_cog': clock_state['yearly_vector_offset']
+            }
+
+        # 3. The Catty-Backplate (Mind & Hobby / Variance)
+        if abs(clock_state['backplate_offset']) > 0.02:
+            filtered_metrics['analytical_variance'] = "Significant"
+            
+        return filtered_metrics
