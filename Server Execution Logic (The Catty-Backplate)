@@ -1,0 +1,18 @@
+import time
+
+def start_deus_ex_knox_sync():
+    current_cycle_pos = 0.0 # 0 to 360 degrees
+    
+    while True:
+        # Step 1: Execute .750ms Pulse
+        time.sleep(NEEDLE_PULSE_MS / 1000.0)
+        
+        # Step 2: Calculate Catty-Backplate Shift (Asymmetrical)
+        current_cycle_pos = (current_cycle_pos + 4.5) % 360.0
+        
+        # Step 3: Check for Reset / Terminal Chromatic Collapse
+        if current_cycle_pos == 0:
+            trigger_new_deus_collective()
+            
+        # Step 4: Update Radar (Silver/Gold/Diamond Shift)
+        update_radar_pings(current_cycle_pos)
