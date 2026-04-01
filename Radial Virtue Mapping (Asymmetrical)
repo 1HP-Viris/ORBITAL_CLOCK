@@ -1,0 +1,19 @@
+# Asymmetrical Virtue Map (0-9)
+# Right Vector (Lite/Odd), Left Vector (Nite/Even)
+VIRTUE_MAP = {
+    0: {"name": "Prudence", "vector": "Lite", "side": "Right", "anchor": "Zenith"},
+    1: {"name": "Justice",  "vector": "Nite", "side": "Left",  "anchor": "Nadir"},
+    2: {"name": "Fortitude", "vector": "Nite", "side": "Left"},
+    3: {"name": "Temperance","vector": "Lite", "side": "Right"},
+    4: {"name": "Patience",  "vector": "Nite", "side": "Left"},
+    5: {"name": "Faith",     "vector": "Lite", "side": "Right"},
+    6: {"name": "Hope",      "vector": "Nite", "side": "Left"},
+    7: {"name": "Charity",   "vector": "Lite", "side": "Right"},
+    8: {"name": "Loyalty",   "vector": "Nite", "side": "Left"},
+    9: {"name": "Mastery",   "vector": "Lite", "side": "Right"}
+}
+
+SIN_OVERRIDE = {
+    0: "Pride", 1: "Wrath", 2: "Sloth", 3: "Gluttony", 
+    5: "Lust", 7: "Greed", 8: "Envy"
+}
